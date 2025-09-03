@@ -80,10 +80,9 @@ if 'data' in st.session_state and st.session_state.data:
         df = st.session_state.data[selected_sheet]
         
         # Affichage du tableau
-         # Select only numeric columns for formatting
-          numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns
-            formatter = {col: "{:.2f}" for col in numeric_cols}
-             st.dataframe(df.style.format(formatter))
+        numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns
+        formatter = {col: "{:.2f}" for col in numeric_cols}
+        st.dataframe(df.style.format(formatter))
         
         # Visualisations spécifiques selon l'onglet
         if selected_sheet == "Budget VS Actual":
